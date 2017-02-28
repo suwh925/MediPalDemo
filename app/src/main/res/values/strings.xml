@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">MediPalDemo</string>
-    <string name="title_item_detail">Item Detail</string>
+    <string name="app_name">Health Bio Demo</string>
+    <string name="title_item_detail">Health Condition</string>
 </resources>
