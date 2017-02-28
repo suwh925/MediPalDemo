@@ -1,9 +1,67 @@
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_detail"
-    style="?android:attr/textAppearanceLarge"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:textIsSelectable="true"
-    tools:context="edu.iss.nus.medipaldemo.ItemDetailFragment" />
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/textViewAddHealthConditon">
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="1">
+    <TextView
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:text="Condition:"/>
+    <EditText
+        android:id="@+id/editTextCondition"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:background="@android:drawable/editbox_background"></EditText>
+</LinearLayout>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:text="Condition Type:"
+        android:id="@+id/textView3" />
+
+    <Spinner
+        android:id="@+id/ddlHealthCondition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        />
+
+</LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:text="Start Date:"/>
+
+        <DatePicker
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleY="0.6"
+            android:scaleX="0.6"
+            android:layout_marginLeft="-40dp"
+            android:layout_marginTop="-80dp"
+            android:timePickerMode="spinner"
+            android:id="@+id/editTextStartDate"/>
+    </LinearLayout>
+</LinearLayout>

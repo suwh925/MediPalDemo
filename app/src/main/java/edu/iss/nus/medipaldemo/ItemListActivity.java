@@ -15,7 +15,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-import edu.iss.nus.medipaldemo.dummy.DummyMedicines;
+import edu.iss.nus.medipaldemo.dummy.DummyHealthBio;
+import edu.iss.nus.medipaldemo.dummy.DummyHealthBios;
 
 import java.util.List;
 
@@ -48,8 +49,11 @@ public class ItemListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+                Intent i = new Intent(ItemListActivity.this,ItemDetailActivity.class);
+
+                startActivity(i);
             }
         });
 
@@ -67,15 +71,15 @@ public class ItemListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(DummyMedicines.ITEMS));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(DummyHealthBios.ITEMS));
     }
 
     public class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<DummyMedicines.DummyMedicine> mValues;
+        private final List<DummyHealthBio> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<DummyMedicines.DummyMedicine> items) {
+        public SimpleItemRecyclerViewAdapter(List<DummyHealthBio> items) {
             mValues = items;
         }
 
@@ -89,8 +93,8 @@ public class ItemListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
-            holder.mIdView.setText(mValues.get(position).id);
-            holder.mContentView.setText(mValues.get(position).medicineName);
+            holder.mIdView.setText(mValues.get(position).description);
+            //holder.mContentView.setText(mValues.get(position).conditonName);
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -123,7 +127,7 @@ public class ItemListActivity extends AppCompatActivity {
             public final View mView;
             public final TextView mIdView;
             public final TextView mContentView;
-            public DummyMedicines.DummyMedicine mItem;
+            public DummyHealthBio mItem;
 
             public ViewHolder(View view) {
                 super(view);
